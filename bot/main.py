@@ -4,7 +4,7 @@ from tweet import post_tweet
 
 
 def main():
-    if datetime.now().day != 1:
+    if datetime.now().day != 7:
         print("Not the 1st of the month. Exiting.")
         return
 
