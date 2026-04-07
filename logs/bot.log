@@ -1,0 +1,20 @@
+2026-04-04 21:33:34 | INFO     | Database initialized
+2026-04-04 21:33:34 | INFO     | ✓ Restored session state: idle
+2026-04-04 21:33:34 | INFO     | ✓ Session Manager: 5:00-20:00, 20-45min sessions
+2026-04-04 21:33:34 | INFO     | ======================================================================
+2026-04-04 21:33:34 | INFO     | X AUTOMATION BOT v2 STARTING
+2026-04-04 21:33:34 | INFO     | ======================================================================
+2026-04-04 21:33:34 | INFO     | Starting browser...
+2026-04-04 21:33:41 | INFO     | ✓ Browser launched
+2026-04-04 21:33:41 | INFO     | ✓ Loaded 46 cookies
+2026-04-04 21:34:21 | INFO     | ✓ Browser ready
+2026-04-04 21:34:32 | INFO     | ✓ Authenticated and ready
+2026-04-04 21:34:33 | INFO     | Background scheduler started — housekeeping every ~92 min
+2026-04-04 21:34:33 | INFO     | 
+Starting engagement loop (Ctrl+C to stop)
+
+2026-04-04 21:34:33 | INFO     | 😴 OUTSIDE HOURS - 7.4h until active
+2026-04-04 21:34:33 | INFO     | ⏰ Sleeping 7.4h until next active window
+2026-04-04 21:36:18 | INFO     | 
+Shutdown signal received...
+2026-04-04 21:36:18 | INFO     | Bot stopped cleanly
