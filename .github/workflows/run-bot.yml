@@ -1,0 +1,29 @@
+name: Monthly First Post
+
+on:
+  schedule:
+    - cron: '0 9 1 * *'
+  workflow_dispatch:
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install chromium
+
+      - name: Restore session
+        run: |
+          echo "${{ secrets.SESSION_JSON_B64 }}" | base64 -d > session.json
+
+      - name: Run bot
+        run: python bot/main.py
