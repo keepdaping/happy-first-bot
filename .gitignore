@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+session.json
+*.png
+*.log
+*.tmp
+*.bak
