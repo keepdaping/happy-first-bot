@@ -1,1 +1,1 @@
-HEADLESS_MODE = False
+HEADLESS_MODE = True

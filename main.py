@@ -4,10 +4,9 @@ from tweet import post_tweet
 
 
 def main():
-    print("FORCED TEST RUN")
-    #if datetime.now().day != 1:
-     #   print("Not the 1st of the month. Exiting.")
-      #  return
+    if datetime.now().day != 1:
+        print("Not the 1st of the month. Exiting.")
+        return
 
     playwright = None
     browser = None
