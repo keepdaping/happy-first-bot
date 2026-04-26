@@ -1,10 +1,11 @@
 from datetime import datetime
-from auth import login
-from tweet import post_tweet
+from .auth import login
+from .tweet import post_tweet
+from .config import FORCE_RUN
 
 
 def main():
-    if datetime.now().day != 1:
+    if not FORCE_RUN and datetime.now().day != 1:
         print("Not the 1st of the month. Exiting.")
         return
 

@@ -1,7 +1,7 @@
 import json
 import os
 from playwright.sync_api import sync_playwright
-from config import HEADLESS_MODE
+from .config import HEADLESS_MODE
 
 SESSION_FILE = os.path.join(os.path.dirname(__file__), "..", "session.json")
 
@@ -21,17 +21,33 @@ def login():
     if not isinstance(cookies, list):
         raise Exception("session.json must be a list of cookies")
 
+    # Add url field to each cookie (required by Playwright)
+    # Keep only required fields: name, value, url
+    cleaned_cookies = []
+    for cookie in cookies:
+        cleaned = {
+            "name": cookie.get("name"),
+            "value": cookie.get("value"),
+            "url": "https://x.com"
+        }
+        cleaned_cookies.append(cleaned)
+    
+    cookies = cleaned_cookies
+
     playwright = sync_playwright().start()
     browser = playwright.chromium.launch(headless=HEADLESS_MODE)
     context = browser.new_context()
 
     page = context.new_page()
+    # First navigate to x.com
     page.goto("https://x.com", wait_until="domcontentloaded")
-    page.wait_for_timeout(3000)
-
-    print(f"[auth] loading {len(cookies)} cookies (type: {type(cookies).__name__})")
+    page.wait_for_timeout(2000)
+    
+    # Add cookies after navigation
+    print(f"[auth] loading {len(cookies)} cookies")
     context.add_cookies(cookies)
 
+    # Now navigate to home
     page.goto("https://x.com/home", wait_until="domcontentloaded")
     page.wait_for_timeout(5000)
 
